@@ -3,7 +3,7 @@
 .container {
     display: grid;
     height: 100vh;
-    grid-template-rows: 1fr 6fr 0.5fr;
+    grid-template-rows: 1fr 5fr 0.5fr;
     font-family: 'Roboto', sans-serif;
     background-color: rgb(246, 255, 118);
 }
@@ -18,9 +18,13 @@
     align-items: flex-end;
 }
 
-
+:root {
+    --lightBlue: rgb(167, 206, 238);;
+}
 .display {
     display: flex;
+    flex-direction: column;
+    gap: 10px;
     align-items: center;
     justify-content: center;
     grid-area: 1/2/2/3;
@@ -33,7 +37,7 @@
 
 .main {
     display: grid;
-    grid: 1fr 4fr 1fr/ 1fr 1.5fr 1fr;
+    grid: 1fr 4fr 0.5fr / 1fr 1.5fr 1fr;
     justify-items: center;
 }
 .gameboard {
@@ -42,12 +46,15 @@
     gap: 5px;
     aspect-ratio: 1 / 1;
     padding: 5px;
-    border-radius: 5%;
+    border-radius: 3%;
     max-height: 60vh;
     background-color: white;
     border: thin solid white;
     grid-area: 2/2/3/3;
+    box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.3);
+
 }
+
 .footer {   
     display: flex;
     align-items: center;
@@ -59,11 +66,51 @@
 
 .square {
     border-radius: 5%;
-    background-color: rgb(167, 206, 238);
+    background-color: var(--lightBlue);
     transition: 0.3s;
 }
 
 .square:hover {
+    background-color: steelblue;
+    cursor: pointer;
+}
+
+
+
+.sun {
+  background-color: rgb(214, 75, 105);
+}
+
+.moon {
+    background-color: rgb(27, 19, 148);
+}
+
+.sun, .moon {
+    border-radius: 5%;
+}
+
+.sun img, .moon img {
+    position: relative;
+    top: 25%;
+    left: 25%;
+    max-width: 50%;
+}
+.displayBtns {
+    display: flex;
+    gap: 20px;
+}
+
+button {
+    background-color: var(--lightBlue);
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5%;
+    border: none;
+    transition: 0.3s;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
     background-color: steelblue;
     cursor: pointer;
 }
